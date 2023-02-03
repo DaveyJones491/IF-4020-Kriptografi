@@ -2,26 +2,19 @@ import numpy as np
 import re
 
 def choose_cipher():
-    print("""
-    1. Vigenere Cipher     
-    2. Auto-Key Vigenere Cipher
-    4. Affine Cipher
-    5. Playfair Cipher
-    6. Hill Cipher (Kunci hanya bisa 2x2 atau 3x3)
-    0. Exit""")
+    print("\n1. Vigenere Cipher\n2. Auto-Key Vigenere Cipher\n3. Extended Vigenere Cipher (Doesn't work)\n4. Affine Cipher\n5. Playfair Cipher\n6. Hill Cipher (Kunci hanya bisa 2x2 atau 3x3)\n0. Exit""")
     cipher = int(input("Choose Cipher : "))
     while (cipher < 0 or cipher > 6) :
         cipher = int(input("Invalid input, Choose Cipher : "))
+        print("\n")
     return cipher
 
 def choose_action():
-    print("""
-    1. Encrypt     
-    2. Decrypt
-    0. Cancel""")
+    print("1. Encrypt\n2. Decrypt\n0. Cancel")
     action = int(input("Choose Action : "))
     while (action < 0 or action > 2) :
         action = int(input("Invalid input, Choose Action : "))
+        print("\n")
     return action
 
 def vigenere(string, keyword, action):
@@ -232,16 +225,14 @@ def main():
         action = choose_action()
         if (action != 0):
             
-            read = input('''1. Masukkan teks dari file
-            2. Input teks manual
-            Pilih input : ''')
+            read = int(input('1. Masukkan teks dari file \n2. Input teks manual \nPilih input : '))
             if (read == 1):
                 name = input("Masukkan nama file : ")
                 f = open(name, "r")
                 text = f.read()
             elif (read == 2):
                 text = input("Masukkan teks : ")
-            etext =  (text.lower()).replace(" ", "")
+            etext = (text.lower()).replace(" ", "")
             etext = re.sub(r'[^A-Za-z]', '', etext)
             
             if (cipher == 1):
