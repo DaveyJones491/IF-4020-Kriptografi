@@ -1,5 +1,5 @@
 # IF-4020-Kriptografi
 
-#Requirement
+# Requirement
 Python 3.8
 Numpy
